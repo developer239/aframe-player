@@ -8,6 +8,7 @@ const Controls = styled.div`
   top: 0;
   left: 0;
   z-index: 999;
+  margin-top: 50px;
 `
 
 const Button = styled.div`
@@ -85,10 +86,12 @@ export const Player = () => {
   }
 
   const handleEnterVr = () => {
+    const $video = getVideo()
     const $scene = getScene()
 
-    if ($scene) {
+    if ($scene && $video) {
       $scene.enterVR()
+      $video.play()
     }
   }
 
